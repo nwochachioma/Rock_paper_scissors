@@ -48,12 +48,15 @@ def game():
             print ("You Lose ....")
 
     def again():
-        again = input("\nDo you wish to continue? Y for Yes & N for No: ")
-        if (again).upper() == "Y":
-            game()
-        elif (again).upper() == "N":
-            print("See you again")
-        else:
+        again_option = ["Y", "N"]
+        select = input("\nDo you wish to continue? Y for Yes & N for No: ").upper()
+        while select not in again_option:
+            print ("You have enter an invalid option, please enter again")
             again()
+            break
+        if select == "Y":
+            game()
+        else:
+            print ("See you again")
     again()
 game()
